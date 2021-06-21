@@ -53,6 +53,11 @@ soma.onclick = function(){
 };
 
 
+igual.onclick = function(){
+    operandoa = resultado.textContent;
+    operandob = resultado.textContent;
+    resultado.textContent = eval(resultado.textContent);
+};
 
 function resetar(){
     resultado.textContent = "";
