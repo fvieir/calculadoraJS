@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="calculadora.css">
     <title>Calculadora</title>
 </head>
-<body">
-    
+<body>
+
     <div class="titulo">
         <h1>Calculadora </h1>
         <img src="img/js-logo.png" alt="JS">
@@ -18,34 +18,34 @@
     <table class="calculadora">
         <tr>
             <td colspan="4">
-                <span id="resultado"></span>
+                <span id="visor"></span>
             </td>
         </tr>
         <tr>
-            <td><button id="sete"> 7</button></td>
-            <td><button id="oito">8</button></td>
-            <td><button id="nove">9</button></td>
-            <td><button id="Divisao">/</button></td>
+            <td><button id="sete" class="num" onclick="calNum(7)">7</button></td>
+            <td><button id="oito" class="num" onclick="calNum(8)">8</button></td>
+            <td><button id="nove" class="num" onclick="calNum(9)">9</button></td>
+            <td><button id="somar" class="oper" onclick="calParse('somar')">/</button></td>
         </tr>
         <tr>
-            <td><button id="quatro">4</button></td>
-            <td><button id="cinco">5</button></td>
-            <td><button id="seis">6</button></td>
-            <td><button id="multiplicacao">*</button></td>
+            <td><button id="quatro" class="num" onclick="calNum(4)"> 4</button></td>
+            <td><button id="cinco" class="num" onclick="calNum(5)">5</button></td>
+            <td><button id="seis" class="num" onclick="calNum(6)">6</button></td>
+            <td><button id="sete" class="oper" onclick="calParse('subtrair')">/</button></td>
         </tr>
         <tr>
-            <td><button id="um">1</button></td>
-            <td><button id="dois">2</button></td>
-            <td><button id="tres">3</button></td>
-            <td><button id="subtracao">-</button></td>
+            <td><button id="tres" class="num" onclick="calNum(3)">3</button></td>
+            <td><button id="dois" class="num" onclick="calNum(2)">2</button></td>
+            <td><button id="um" class="num" onclick="calNum(1)">1</button></td>
+            <td><button id="multiplicar" class="oper" onclick="calParse('multiplicar')">/</button></td>
         </tr>
         <tr>
-            <td><button id="igual">=</button></td>
-            <td><button id="reset">C</button></td>
-            <td><button id="zero">0</button></td>
-            <td><button id="soma">+</button></td>
+            <td><button id="zero" class="num" onclick="calNum(0)">0</button></td>
+            <td><button id="igual" class="num" onclick="calParse(igual)">=</button></td>
+            <td><button id="limpar" class="num" onclick="calcLimpar()">AC</button></td>
+            <td><button id="dividir" class="oper" onclick="calParse('dividir')">/</button></td>
         </tr>
     </table>
-    <script src="index.js"></script>
+
 </body>
 </html>
