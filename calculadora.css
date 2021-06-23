@@ -1,69 +1,36 @@
-body{
-   background: url(img/background.jpg);
-   color: black;
+#visor {
+   background-color: #bdffb4;
+   text-align: right;
 }
 
-.titulo{
-   display: flex;
-   justify-content: center;
-   margin-bottom: 30px;
-   color: rgb(67, 68, 73);
+table {
+   margin: 0 auto 0 auto;
 }
 
-.calculadora {
+form fieldset {
+   margin: 10px auto 10px auto;
+   width: 40%;
+   border: solid black 1px;
+   padding: 3%;
+   margin-bottom: 10px;
+}
+
+form input {
+   width: 100%;
+   border: solid #ccc 1px;
+   font-size: 11px;
+   margin-bottom: 10px;
+}
+
+form input.num {
    display: block;
-   margin: 0px auto;
-   padding: 20px;
-   background-color: rgb(67, 68, 73);
-   width: 350px;
-   height: 500px;
-   border-radius: 25px;
+   width: 24px;
+   height: 24px;
 }
 
-.calculadora td button{
+form input.oper {
    display: block;
-   height: 70px;
-   width: 70px;
-   font-size: 25px;
-}
-
-.calculadora td button:hover{
-   background-color: rgba(251, 194, 79)
-}
-
-h1 {
-   text-align: center;
-   padding: 40px;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-#visor{
-   display: block;
-   text-align: center;
-   font-size: 40px;
-   margin-bottom: 50px;
-   width: 300px;
-   height: 100px;
-   line-height: 100px;
-   background-color:#fff;
-   border-radius: 10px;
-}
-
-@media (max-width:500px){
-   body{
-       width: 60%;
-   }
-   .titulo h1 {
-       font-size: 28px;
-       padding-left: 15px;
-       color: rgb(67, 68, 73);
-   }
-   
-   .titulo img{
-       position: absolute;
-       right: 32px;
-       margin-top: 37px;
-       width: 30px;
-       height: 30px;
-   }
+   width: 24px;
+   height: 24px;
+   background-color: #b2b2b2;
 }
