@@ -8,116 +8,80 @@
     <link rel="stylesheet" href="calculadora.css">
     <title>Calculadora</title>
 
-  <script type="text/javascript">
-        function calcNum(num){
-            if (typeof gvisor == 'undefined') {
-                document.caclform.visor.value = '';
-                
-            }
-
-            document.caclform.visor.value = document.caclform.visor.value + num;
-
-            gvisor = 1;
-        }
-
-        function calcLimpar(){
-            document.caclform.visor.value = '';
-
-            delete gvalor;
-            delete goper;
-            delete gvisor;
-        }
-
-        function calcOper (oper, valor1, valor2)
-        {
-            if (oper == "somar") 
-            {
-                var valor = parseFloat(valor1) + parseFloat(valor2); 
-            } else 
-            {
-                if (oper == "subtrair") 
-                {
-                    var valor = valor1-valor2;
-                } else 
-                {
-                    if (oper == "multiplicar") 
-                    {
-                        var valor = valor1 * valor2;
-                    } else 
-                    {
-                        var valor = valor1 / valor2;
-                    }
-                }
-            }
-            return(valor);
-        }
-
-        function calcParse(oper)
-        {
-            var valor = document.caclform.visor.value;
-            delete gvisor;
-
-            if (typeof goper != 'undefined' && oper == 'resultado') {
-                gvalor = calcOper(goper, gvalor, valor);
-                document.calcform.visor.value = gvalor;
-
-                delete oper;
-                delete valor;
-                return(0);
-            }
-
-            if (typeof gvisor != 'undefined') {
-
-                gvalor = calcOper(goper, gvalor, valor);
-                goper = oper;
-                document.calcform.gvisor.value = gvalor;
-
-            } else {
-                gvalor = valor;
-                goper = oper;
-            }
-
-        }
-
-    </script>
-
 </head>
 <body>
 
-    <form name="caclform" method="post" action="">
-        <fieldset>
-           <legend>Devin - Calculadora Complexa</legend>
-     
-           <input type="text" name="visor" id="visor" />
-     
-           <table id="calc">
-              <tr>
-                 <td><input type="button" name="num9" class="num" value="9" onclick="calcNum(9)" /></td>
-                 <td><input type="button" name="num8" class="num" value="8" onclick="calcNum(8)" /></td>
-                 <td><input type="button" name="num7" class="num" value="7" onclick="calcNum(7)" /></td>
-                 <td><input type="button" name="somar" class="oper" value="+" onclick="calcParse('somar')" /></td>
-              </tr>
-              <tr>
-                 <td><input type="button" name="num6" class="num" value="6" onclick="calcNum(6)" /></td>
-                 <td><input type="button" name="num5" class="num" value="5" onclick="calcNum(5)" /></td>
-                 <td><input type="button" name="num4" class="num" value="4" onclick="calcNum(4)" /></td>
-                 <td><input type="button" name="subtrair" class="oper" value="-" onclick="calcParse('subtrair')" /></td>
-              </tr>
-              <tr>
-                 <td><input type="button" name="num3" class="num" value="3" onclick="calcNum(3)" /></td>
-                 <td><input type="button" name="num2" class="num" value="2" onclick="calcNum(2)" /></td>
-                 <td><input type="button" name="num1" class="num" value="1" onclick="calcNum(1)" /></td>
-                 <td><input type="button" name="multiplicar" class="oper" value="*" onclick="calcParse('multiplicar')" /></td>
-              </tr>
-              <tr>
-                 <td><input type="button" name="num0" class="num" value="0" onclick="calcNum(0)" /></td>
-                 <td><input type="button" name="igual" class="num" value="=" onclick="calcParse('resultado')" /></td>
-                 <td><input type="button" name="limpar" class="num" value="AC" onclick="calcLimpar()" /></td>
-                 <td><input type="button" name="dividir" class="oper" value="/" onclick="calcParse('dividir')" /></td>
-              </tr>
-           </table>
-        </fieldset>
-     </form>
+    
+    <div class="fundo">
+        <h1>Fabrício</h1>
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id="resultado"></p>
+            <table>
+                <tr>
+                    <td><button class="botao" onclick="clean()">C</button></td>
+                    <td><button class="botao" onclick="back()"><</button></td>
+                    <td><button class="botao" onclick="insert('/')">/</button></td>
+                    <td><button class="botao" onclick="insert('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('7')">7</button></td>
+                    <td><button class="botao" onclick="insert('8')">8</button></td>
+                    <td><button class="botao" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td>
+                    <td><button class="botao" onclick="insert('5')">5</button></td>
+                    <td><button class="botao" onclick="insert('6')">6</button></td>
+                    <td><button class="botao" onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td>
+                    <td><button class="botao" onclick="insert('2')">2</button></td>
+                    <td><button class="botao" onclick="insert('3')">3</button></td>
+                    <td rowspan="2"><button class="botao" style="height: 107px;" onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 107px;" onclick="insert('0')">0</button></td>
+                    <td><button class="botao">.</button></td>
+                </tr>
+            </table>
+        </div>        
+    </div>
+
+    <script>
+      
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = numero + num ;
+        }
+
+        function clean()
+        {
+           document.getElementById('resultado').innerHTML = '';
+           var numero = '';
+           var num = '';     
+        }
+        
+        function back() {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1);
+        }
+
+        function calcular() {
+            var resultado = document.getElementById('resultado').innerHTML;
+
+            if (resultado) {
+                document.getElementById('resultado').innerHTML = eval(resultado);    
+            }else{
+                document.getElementById('resultado').innerHTML = '';
+            }
+        }
+
+
+    </script>
      
 </body>
 </html>
